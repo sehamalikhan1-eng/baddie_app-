@@ -1,6 +1,6 @@
 workflows:
   baddie-workflow:
-    name: Baddie App
+    name: Baddie_App
     environment:
       flutter: stable
       xcode: latest
