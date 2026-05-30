@@ -9,11 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   flutter_tts: ^4.0.0
   speech_to_text: ^6.6.0
   http: ^1.1.0
   permission_handler: ^11.0.0
-  screen_lock_plugin: ^0.0.3
   shared_preferences: ^2.2.0
 
 dev_dependencies:
