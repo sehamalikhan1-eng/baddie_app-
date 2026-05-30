@@ -9,8 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      ANDROID_USE_NEW_DSL: false
 
     steps:
       - name: Checkout repository
@@ -25,7 +27,7 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.44.0'
+          flutter-version: '3.19.6'
           channel: stable
 
       - name: Flutter doctor
@@ -37,12 +39,7 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Recreate Android project
-        run: |
-          rm -rf android
-          flutter create . --platforms=android
-
-      - name: Build APK (Release)
+      - name: Build APK
         run: flutter build apk --release
 
       - name: Upload APK
