@@ -31,8 +31,16 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor
 
+      - name: Clean project
+        run: flutter clean
+
       - name: Get dependencies
         run: flutter pub get
+
+      - name: Recreate Android project
+        run: |
+          rm -rf android
+          flutter create . --platforms=android
 
       - name: Build APK (Release)
         run: flutter build apk --release
