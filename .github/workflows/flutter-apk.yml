@@ -26,14 +26,16 @@ jobs:
           flutter-version: '3.19.6'
           channel: stable
 
-      - name: Fix Android folder
-        run: |
-          flutter clean
-          rm -rf android
-          flutter create . --platforms=android
+      - name: Clean project
+        run: flutter clean
 
       - name: Get dependencies
         run: flutter pub get
+
+      - name: Fix Android folder
+        run: |
+          rm -rf android
+          flutter create . --platforms=android
 
       - name: Build APK
         run: flutter build apk --release
